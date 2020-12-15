@@ -1,0 +1,274 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Who is The Singer?</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="font/material-icons.css"> 
+</head>
+<body>
+  <section class="inicio">
+    <h1>Quem é o Cantor ?</h1>    
+    <button>INICIAR</button>
+  </section> <!-- end .inicio -->
+
+  <section class="singer-1">
+  	<h1>Who is the singer?</h1>       
+    <span class="tempo">00</span>
+  	<img src="img/seger.png"  class="img1" id="seger">
+  	<img src="img/acdc.png" class="img1" id="acdc">
+  	<img src="img/guns.png" class="img2" id="guns">
+  	<img src="img/beatles.png" class="img2" id="beatles">
+  	<p>
+  		<span class="mticons" class="play" id="play">play_circle_filled</span>
+  		<span class="mticons" class="info" id="info">info</span>  
+  	</p>
+  	
+  </section>
+
+  <section class="singer-2">
+  	<h1>Who is the singer?</h1>
+  	<span class="tempo">00</span>
+  	<img src="img/slip.png"  class="img1" id="slipknot">
+  	<img src="img/kansas.png" class="img1" id="kansas">
+  	<img src="img/guns.png" class="img2" id="gunsc">
+  	<img src="img/aero.png" class="img2" id="aero">
+  	<p>
+  		<span class="mticons" class="play" id="play2">play_circle_filled</span>
+  		<span class="mticons" class="info" id="info2">info</span>  
+  	</p>
+  </section>
+  	
+  <section class="final">
+  	<h1 align="center">Who is the singer?</h1>
+  	<h2 class="time">Seu tempo foi de : </h2>
+  	<h2>Primeira Tela</h2>
+  	<img src="img/seger.png"  class="img4" id="rseger">
+  	<img src="img/beatles.png" class="img4" id="rbeatles"> <br>
+  	<h2>Segunda Tela</h2>
+  	<img src="img/slip.png"  class="img3" id="rslipknot">
+  	<img src="img/kansas.png" class="img3" id="rkansas">
+  	<img src="img/guns.png" class="img3" id="rguns">
+  	<button class="botao" id="botao">Conferir Respostas</button> <br>
+  	<form>
+  	<button class="mticons" class="play" id="play2">home</span>
+  	</form>
+  </section>
+
+  
+ 
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript">
+  	
+  	var musica1 = new Audio('');
+  	var musica2 = new Audio('');
+  	var musica3 = new Audio('');
+
+  	var cont = 0;
+  	var seger = 0;
+  	var beatles = 0;
+  	var guns = 0;
+  	var kansas = 0;
+  	var slipknot = 0;
+
+  	var time;
+
+  	$('section.inicio button').on('click', function(){
+  		$('section').hide();
+  		$('section.singer-1').show();
+  			setInterval(function(){
+  			var tempo = parseInt($('span.tempo').text());
+  			soma = tempo + 1;
+  			if (soma < 10) {
+  				soma = "0"+soma;
+  			};
+  			$('span.tempo').text(soma + "s");
+  		},1000);
+  	});
+
+  	$('#beatles').one('click', function(){
+  		beatles++;
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 2) {
+  		$('section').hide();
+  		$('section.singer-2').show();
+  		musica1.pause();
+  		musica2.pause();
+  		}
+  		
+  	});
+
+  	$('#seger').one('click', function(){
+  		seger++;
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 2) {
+  		$('section').hide();
+  		$('section.singer-2').show();
+  		musica1.pause();
+  		musica2.pause();
+  		}
+  	});
+
+  	$('#guns').one('click', function(){
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 2) {
+  		$('section').hide();
+  		$('section.singer-2').show();
+  		musica1.pause();
+  		musica2.pause();
+  		}
+  	});
+
+  	$('#acdc').one('click', function(){
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 2) {
+  		$('section').hide();
+  		$('section.singer-2').show();
+  		musica1.pause();
+  		musica2.pause();
+  		}
+  	});
+
+  	$('#slipknot').one('click', function(){
+  		cont++;
+  		slipknot++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 5) {
+  		$('section').hide();
+  		$('section.final').show();
+  		musica1.pause();
+  		musica2.pause();
+  		musica3.pause();
+  		var time = parseInt($('span.tempo').text());
+  		$('h2.time').text('Seu tempo foi de : '+time+'s');
+  		}
+  	});
+
+  	$('#gunsc').one('click', function(){
+  		cont++;
+  		guns++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 5) {
+  		$('section').hide();
+  		$('section.final').show();
+  		musica1.pause();
+  		musica2.pause();
+  		musica3.pause();
+
+  		var time = parseInt($('span.tempo').text());
+  		$('h2.time').text('Seu tempo foi de : '+time+'s');
+  		}
+  	});
+
+  	$('#kansas').one('click', function(){
+  		cont++;
+  		kansas++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 5) {
+  		$('section').hide();
+  		$('section.final').show();
+  		musica1.pause();
+  		musica2.pause();
+  		musica3.pause();
+  		var time = parseInt($('span.tempo').text());
+  		$('h2.time').text('Seu tempo foi de : '+time+'s');
+  		}
+  	  	});
+
+  	$('#aero').one('click', function(){
+  		cont++;
+  		$(this).css({opacity : 0.5});
+  		if (cont == 5) {
+  		$('section').hide();
+  		$('section.final').show();
+  		musica1.pause();
+  		musica2.pause();
+  		musica3.pause();
+  		}
+  	});
+
+  	var msc = 0;
+  	$('#play').on('click', function(){
+  		if (msc == 0) {
+  			musica1 = new Audio('musica/cantores/rock.mp3');
+  			musica1.play();
+  			musica2 = new Audio('musica/cantores/twist.mp3');
+  			musica2.play();
+  			msc++;
+  		} else if (msc == 1) {
+  			musica1.pause();
+  			musica2.pause();
+  			msc--;
+  		}
+  	});
+
+  		$('#play2').on('click', function(){
+  		if (msc == 0) {
+  			musica1 = new Audio('musica/cantores/sweet.mp3');
+  			musica1.play();
+  			musica2 = new Audio('musica/cantores/psycho.mp3');
+  			musica2.play();
+  			musica3 = new Audio('musica/cantores/carry.mp3');
+  			musica3.play();
+  			msc++;
+  		} else if (msc == 1) {
+  			musica1.pause();
+  			musica2.pause();
+  			musica3.pause();
+  			msc--;
+  		}
+
+  		
+  	});
+
+  	$('#info').on('click', function(){
+  		alert('Pressione play, após isso descubra os dois cantores e pressione a imagem dos mesmos. Boa Sorte !');	
+  	});
+
+  	$('#info2').on('click', function(){
+  		alert('Pressione play, após isso descubra os tres cantores e pressione a imagem dos mesmos. Boa Sorte !');	
+  	});
+
+  	$('#botao').on('click', function(){
+		if (seger == 0) {
+			$(rseger).css({opacity : 0.5});
+		}
+		if (beatles == 0) {
+			$(rbeatles).css({opacity : 0.5});
+		}
+		if (slipknot == 0) {
+			$(rslipknot).css({opacity : 0.5});
+		}
+		if (guns == 0) {
+			$(rguns).css({opacity : 0.5});
+		}
+		if (kansas == 0) {
+			$(rkansas).css({opacity : 0.5});
+		}
+  		
+  		alert('A Correção funciona da seguinte forma: Na tela tem as respostas corretas, as que você acertou irão permanecer normal, as que você errou, ou seja, selecionou outro artista ao invés deste, a imagem irá esmaecer.');
+
+  	});
+
+  	
+
+
+
+
+  </script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
